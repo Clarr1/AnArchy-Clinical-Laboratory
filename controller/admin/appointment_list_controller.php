@@ -1,7 +1,7 @@
 <?php
 
 require base_path("models/Admin_query.php");
-require base_path("middleware/auth.php");
+// require base_path("middleware/auth.php");
 
 $db   = new Database();
 $conn = $db->connect();
