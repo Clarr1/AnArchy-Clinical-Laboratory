@@ -9,6 +9,7 @@ $routes = [
     "patients/register" => "controller/patients/register_patients_controller.php",
     "patients/login" => "controller/patients/login_patients_controller.php",
     "patients/appointment" => "controller/patients/appointment_controller.php",
+    "patients/view-appointment" => "controller/patients/view_appointment_controller.php",
     "admin/appointment-list" => "controller/admin/appointment_list_controller.php",
     "admin/appointment-details" => "controller/admin/appointment_details_controller.php",
     "admin/login" => "controller/admin/login_admin_controller.php",
