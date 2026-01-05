@@ -161,6 +161,24 @@ class Admin{
 
     }
 
+public function update_status($appointment_id, $appointment_status)
+{
+    try {
+        $query = "UPDATE appointment 
+                  SET appointment_status = :appointment_status 
+                  WHERE appointment_id = :appointment_id";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':appointment_id', $appointment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':appointment_status', $appointment_status, PDO::PARAM_STR);
+
+        return $stmt->execute();
+    } catch (PDOException $e) {
+        return false;
+    }
+}
+
+
 }
 
 

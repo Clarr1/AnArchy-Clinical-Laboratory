@@ -129,11 +129,12 @@ public function login_patients($email, $patients_password){
         int $contact_number,
         string $patient_address,
         string $appointment_date,
-        string $reason
+        string $reason,
+        string $appointment_status = "pending"
     )
         {
             try{
-                $query = "INSERT INTO appointment(fname, lname, mname, age, sex, patients_address, appointment_date, reason) VALUES(:fname, :lname, :mname, :age, :sex, :patients_address, :appointment_date, :reason)";
+                $query = "INSERT INTO appointment(fname, lname, mname, age, sex, patients_address, appointment_date, reason, appointment_status) VALUES(:fname, :lname, :mname, :age, :sex, :patients_address, :appointment_date, :reason, :appointment_status)";
 
                     $stmt = $this->conn->prepare($query);
 
@@ -145,6 +146,7 @@ public function login_patients($email, $patients_password){
                     $stmt->bindParam(':patients_address', $patient_address);
                     $stmt->bindParam(':appointment_date', $appointment_date);
                     $stmt->bindParam(':reason', $reason);
+                    $stmt->bindParam(':appointment_status', $appointment_status);
                     $stmt->execute();
 
                     return true;
